@@ -61,3 +61,10 @@ After resolving service and integration issues, the Mimikatz executable was re-r
 Wazuh correctly detected the malicious behavior and produced corresponding alerts within the manager and dashboard. These alerts were then forwarded to a Shuffle.io webhook, where the SOC automation workflow successfully triggered and ingested the alert data.
 
 This confirmed that the detection pipeline—from endpoint activity, to SIEM ingestion, to SOAR automation—was functioning as intended.
+
+## Reflections
+This lab was concluded after successfully validating end-to-end detection and automation workflows using Wazuh and Shuffle.io. Although additional steps were available, the core objectives of the lab were met, including environment setup, attack simulation, alert ingestion, and SOAR workflow execution.
+
+Throughout the process, multiple technical challenges were encountered involving service dependencies, cloud infrastructure limitations, and third-party integrations. Resolving these issues required systematic troubleshooting, research, and adaptation, ultimately reinforcing real-world problem-solving skills and resilience.
+
+This experience emphasized that effective security engineering is not only about completing prescribed steps, but also about making informed decisions, managing scope, and maintaining system stability while achieving meaningful outcomes.
