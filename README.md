@@ -56,3 +56,8 @@ After making these changes, I encountered an error when attempting to restart th
 I then reviewed the detailed service status using systemctl status wazuh-manager --no-pager -l, which revealed an error message stating “Error reading XML file ‘etc/ossec.conf’.” This indicated a configuration syntax issue rather than a service or dependency failure.
 
 Upon revisiting the ossec.conf file, I identified that a portion of the XML syntax was incomplete due to missing text within one of the configuration tags. After correcting the XML formatting error, I successfully restarted the Wazuh manager, confirming that the issue was resolved.
+After resolving service and integration issues, the Mimikatz executable was re-run on the Windows 10 client to simulate credential-dumping activity. Upon execution, telemetry was successfully generated and forwarded to the Wazuh Manager via Sysmon event logging.
+
+Wazuh correctly detected the malicious behavior and produced corresponding alerts within the manager and dashboard. These alerts were then forwarded to a Shuffle.io webhook, where the SOC automation workflow successfully triggered and ingested the alert data.
+
+This confirmed that the detection pipeline—from endpoint activity, to SIEM ingestion, to SOAR automation—was functioning as intended.
