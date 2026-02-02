@@ -1,6 +1,9 @@
 # SOC-Automation-Lab
 Here I will be detailing the steps of my SOC Automation Lab.
 
+## Objective
+To gain hands-on experience with SOC tools and workflows by deploying a SIEM environment, generating endpoint telemetry, simulating attacks, and validating automated alert handling while strengthening problem-solving and troubleshooting skills.
+
 
 ## Tools & Technologies Used
 - Wazuh SIEM – Centralized security monitoring and alerting platform used to ingest, analyze, and correlate endpoint telemetry.
