@@ -62,7 +62,11 @@ Upon execution, Wazuh successfully ingested the associated Sysmon logs and trigg
 
 The successful alert served as proof that Wazuh was capable of observing and identifying simulated credential access activity, validating the effectiveness of the logging and detection pipeline.
 
-![Wazuh Receiving Data from Mimikatz execution] (images/Screenshot (5).png)
+
+<p align="center">
+  <img src="images/Screenshot (5).png" width="700">
+</p>
+
 
 ## Wazuh Manager Troubleshooting During Workflow Integration
 
@@ -78,6 +82,10 @@ After resolving service and integration issues, the Mimikatz executable was re-r
 Wazuh correctly detected the malicious behavior and produced corresponding alerts within the manager and dashboard. These alerts were then forwarded to a Shuffle.io webhook, where the SOC automation workflow successfully triggered and ingested the alert data.
 
 This confirmed that the detection pipeline—from endpoint activity, to SIEM ingestion, to SOAR automation—was functioning as intended.
+
+<p align="center">
+  <img src="images/Screenshot (6).png" width="700">
+</p>
 
 ## Reflections
 This lab was concluded after successfully validating end-to-end detection and automation workflows using Wazuh and Shuffle.io. 
