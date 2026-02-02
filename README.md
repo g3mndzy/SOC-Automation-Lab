@@ -62,6 +62,8 @@ Upon execution, Wazuh successfully ingested the associated Sysmon logs and trigg
 
 The successful alert served as proof that Wazuh was capable of observing and identifying simulated credential access activity, validating the effectiveness of the logging and detection pipeline.
 
+![Wazuh Receiving Data from Mimikatz execution] (images/Screenshot (5).png)
+
 ## Wazuh Manager Troubleshooting During Workflow Integration
 
 Next, I began building an automated workflow using Shuffle.io by creating a webhook to collect event data from the Wazuh manager. To support this integration, I updated the ossec.conf configuration file on the Wazuh manager to include the new webhook-related settings.
