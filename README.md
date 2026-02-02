@@ -1,9 +1,22 @@
 # SOC-Automation-Lab
 Here I will be detailing the steps of my SOC Automation Lab.
 
+
+## Tools & Technologies Used
+- Wazuh SIEM – Centralized security monitoring and alerting platform used to ingest, analyze, and correlate endpoint telemetry.
+- Wazuh Agent – Endpoint agent deployed on the Windows client to collect and forward security events to the Wazuh Manager.
+- Sysmon (System Monitor) – Windows endpoint telemetry tool used to capture high-fidelity events such as process creation, command-line execution, and file activity.
+- Shuffle.io (SOAR) – Security automation platform used to ingest alerts via webhook and execute automated workflows.
+- Webhook Integration – Used to forward alerts from the SIEM to the SOAR platform for automated processing.
+- Mimikatz – Offensive security tool used to simulate credential-dumping activity for detection testing.
+- Windows 10 – Endpoint system used to generate attack telemetry and simulate real-world user activity.
+- Ubuntu Server (Cloud-hosted) – Linux server used to host SIEM components and manage backend services.
+- PowerShell – Used for endpoint testing, command execution, and validation of telemetry generation.
+- Linux CLI Utilities – Tools such as systemctl, journalctl, curl, and ss used for service management, troubleshooting, and validation.
+
 ## Home Lab Environment Setup & Troubleshooting (Wazuh SIEM)
 
-The first phase of this lab focused on preparing a home lab environment to support a Wazuh SIEM deployment. A Windows 10 client virtual machine was created using VirtualBox by downloading and installing a Windows 10 ISO. In parallel, an Ubuntu Server instance hosted on Vultr was provisioned to act as the centralized Wazuh SIEM server. Secure access to the Ubuntu server was established using SSH from PowerShell, allowing for remote administration and configuration.
+The first phase of this lab focused on preparing a home lab environment to support a Wazuh SIEM deployment. A Ubuntu Server instance hosted on Vultr was provisioned to act as the centralized Wazuh SIEM server. Secure access to the Ubuntu server was established using SSH from PowerShell, allowing for remote administration and configuration.
 
 
 ## Initial Issue: Unable to Access Wazuh Web Dashboard
@@ -17,7 +30,6 @@ Suspecting a firewall misconfiguration, I reviewed the Vultr cloud firewall rule
 On powershell, I tested whether the server was reachable externally on port 443 with Test-NetConnection (ip address) -Port 443. However the test failed meaning that the HTTPS traffic was still not being allowed to process. 
 
 Next, I used sudo ss -tulpn | grep LISTEN to confirm if the Wazuh dashboard was actually running and listening for connections which everything seemed to be running fine. Lastly, I used Test-NetConnections to confirm if the website would be reacble and the value returned True. I was able to then log on the URL using https://(ip address) and successfully logged into Wazuh.
-Wazuh Detection & Telemetry Lab (Progress Documentation)
 
 After encountering persistent misconfiguration issues with TheHive, I decided to pause further implementation in order to focus on strengthening my Wazuh SIEM configuration, prioritizing log visibility and detection accuracy.
 
@@ -63,7 +75,7 @@ Wazuh correctly detected the malicious behavior and produced corresponding alert
 This confirmed that the detection pipeline—from endpoint activity, to SIEM ingestion, to SOAR automation—was functioning as intended.
 
 ## Reflections
-This lab was concluded after successfully validating end-to-end detection and automation workflows using Wazuh and Shuffle.io. Although additional steps were available, the core objectives of the lab were met, including environment setup, attack simulation, alert ingestion, and SOAR workflow execution.
+This lab was concluded after successfully validating end-to-end detection and automation workflows using Wazuh and Shuffle.io. 
 
 Throughout the process, multiple technical challenges were encountered involving service dependencies, cloud infrastructure limitations, and third-party integrations. Resolving these issues required systematic troubleshooting, research, and adaptation, ultimately reinforcing real-world problem-solving skills and resilience.
 
